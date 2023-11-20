@@ -10,6 +10,7 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include "../../../includes/data_structs.h"
+#include "../../../includes/my.h"
 
 char *open_map_file(char *file_path)
 {
@@ -18,6 +19,7 @@ char *open_map_file(char *file_path)
     struct stat *file_stats = malloc(sizeof(struct stat));
 
     if (fd == (-1)) {
+        my_puterr("setting_up: Failed opening file.\n");
         return NULL;
     }
     stat(file_path, file_stats);

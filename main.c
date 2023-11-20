@@ -8,7 +8,7 @@
 #include "includes/my.h"
 #include "includes/internal_functions.h"
 
-const char *ERR_MSG = "setting_up: Invalid number of arguments.";
+const char *ERR_MSG = "setting_up: Invalid number of arguments.\n";
 
 int main(int argc, char **argv)
 {

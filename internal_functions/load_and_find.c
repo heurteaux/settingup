@@ -14,10 +14,8 @@ int load_and_find(char *file_path)
 {
     char **map = map_to_memory(file_path);
 
-    if (!map) {
-        my_puterr("setting_up: Failed reading file.\n");
+    if (!map)
         return 84;
-    }
     for (int i = 0; map[i] != NULL; i++) {
         printf("%s\n", map[i]);
     }

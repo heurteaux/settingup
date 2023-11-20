@@ -116,3 +116,9 @@ int my_str_isupper(char const *str);
 int my_str_isalpha(char const *str);
 
 int my_str_isprintable(char const *str);
+
+void for_positive_err(int nb, int arg_length, long result_holder);
+
+void for_negative_err(long nb, int arg_length, long result_holder);
+
+int my_puterr_nbr(int nb_origin);
