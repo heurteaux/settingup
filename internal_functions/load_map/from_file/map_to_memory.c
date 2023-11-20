@@ -16,6 +16,23 @@ bool is_valid_map_character(char a)
     return (a == 'o' || a == '.');
 }
 
+static void display_error_invalid_size(map_to_memory_shortner *vars)
+{
+    my_puterr("setting_up: Invalid line size, line is ");
+    my_puterr_nbr(vars->loop_cols + 1);
+    my_puterr(" characters long, but expected ");
+    my_puterr_nbr(vars->nb_cols);
+    my_puterr(" characters at line ");
+    my_puterr_nbr(vars->loop_rows + 1);
+}
+
+static void display_error_invalid_char(map_to_memory_shortner *vars)
+{
+    my_puterr("setting_up: Illegal character on map file at line ");
+    my_puterr_nbr(vars->loop_rows);
+    my_puterr(".\n");
+}
+
 static int file_content_to_array(
     char const *file_content, map_to_memory_shortner *vars, char **map)
 {
@@ -25,10 +42,12 @@ static int file_content_to_array(
             vars->loop_rows++;
             continue;
         }
+        if (vars->loop_cols + 1 > vars->nb_cols) {
+            display_error_invalid_size(vars);
+            return 1;
+        }
         if (!is_valid_map_character(file_content[i]) && vars->loop_rows > 0) {
-            my_puterr("setting_up: Illegal character on map file at line ");
-            my_puterr_nbr(vars->loop_rows);
-            my_puterr(".\n");
+            display_error_invalid_char(vars);
             return 1;
         }
         map[vars->loop_rows][vars->loop_cols] = file_content[i];

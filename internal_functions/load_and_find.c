@@ -5,9 +5,9 @@
 ** load_and_find.c
 */
 
-#include "../includes/internal_functions.h"
-#include "../includes/my.h"
 #include <stddef.h>
+#include "../includes/my.h"
+#include "../includes/internal_functions.h"
 
 int load_and_find(char *file_path)
 {
