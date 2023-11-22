@@ -22,13 +22,14 @@ int get_nb_rows(char *file_content, int nb_cols)
             return -1;
         first_line[i] = file_content[i];
     }
+    free(first_line);
     nb_rows = my_getnbr(file_content);
     if (nb_rows > 0)
         return nb_rows;
     return (-1);
 }
 
-int get_nb_cols(char *file_content)
+int get_nb_cols(const char *file_content)
 {
     int nb_cols = 0;
     int n = 0;

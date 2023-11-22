@@ -5,19 +5,20 @@
 ** load_and_find.c
 */
 
-#include <stddef.h>
-#include "../includes/my.h"
+#include <stdlib.h>
 #include "../includes/internal_functions.h"
+
 
 int load_and_find(char *file_path)
 {
-    char **map = map_to_memory(file_path);
+    square max_square;
+    int nb_cols = 0;
+    int nb_rows = 0;
+    char *map = map_from_file(file_path, &nb_cols, &nb_rows);
 
-    if (!map)
-        return 84;
-    for (int i = 0; map[i] != NULL; i++) {
-        my_putstr(map[i]);
-        my_putchar('\n');
-    }
+    max_square = get_max_square(map, nb_cols, nb_rows);
+    reveal_square(max_square, map, nb_cols);
+    display_map(map, nb_rows, nb_cols);
+    free(map);
     return 0;
 }
