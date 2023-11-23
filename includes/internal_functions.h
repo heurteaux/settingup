@@ -30,3 +30,7 @@ void reveal_square(square max_square, char *map, int nb_cols);
 void write_char_pos(char *map, int x, int y, int nb_cols);
 
 void display_map(char *map, int nb_rows, int nb_cols);
+
+char *generate_map(int size, char *pattern);
+
+int generate_and_find(char *square_size, char *pattern);

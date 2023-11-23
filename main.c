@@ -20,7 +20,7 @@ int main(int argc, char **argv)
         return load_and_find(argv[1]);
     }
     if (argc == 3) {
-        return 84;
+        return generate_and_find(argv[1], argv[2]);
     }
     return 0;
 }
