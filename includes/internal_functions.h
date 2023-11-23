@@ -6,6 +6,7 @@
 */
 
 #include "data_structs.h"
+#include <stdbool.h>
 
 #pragma once
 
@@ -34,3 +35,11 @@ void display_map(char *map, int nb_rows, int nb_cols);
 char *generate_map(int size, char *pattern);
 
 int generate_and_find(char *square_size, char *pattern);
+
+bool is_pattern_valid(char *pattern);
+
+int invalid_square_size(void);
+
+int invalid_pattern_size(void);
+
+int invalid_pattern(void);

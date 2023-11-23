@@ -10,6 +10,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 char *file_content_to_map(char *file_content)
 {

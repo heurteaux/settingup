@@ -5,6 +5,7 @@
 ** load_and_find.c
 */
 
+#include <stdio.h>
 #include <stdlib.h>
 #include "../includes/internal_functions.h"
 

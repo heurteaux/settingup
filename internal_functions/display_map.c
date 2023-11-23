@@ -10,6 +10,5 @@
 
 void display_map(char *map, int nb_rows, int nb_cols)
 {
-    write(1, map, ((nb_rows + 1) * nb_cols - 1));
-    my_putchar('\n');
+    write(1, map, (nb_rows * nb_cols + nb_rows));
 }

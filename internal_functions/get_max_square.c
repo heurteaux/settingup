@@ -11,10 +11,10 @@
 
 int *int_map_from_file(const char *map, int nb_rows, int nb_cols)
 {
-    int *int_map = malloc(sizeof(int) * (nb_rows * nb_cols + 1));
+    int *int_map = malloc(sizeof(int) * (nb_rows * nb_cols));
     int count = 0;
 
-    for (int i = 0; i < (nb_rows * nb_cols + 1); i++) {
+    for (int i = 0; i < (nb_rows * nb_cols); i++) {
         int_map[i] = 0;
     }
     for (int i = 0; map[i] != '\0'; i++) {
@@ -57,12 +57,13 @@ void ponder_map(int *int_map, int nb_cols, int nb_rows)
 {
     for (int y = 0; y < nb_rows; y++) {
         for (int x = 0; x < nb_cols; x++) {
-            ponder_map_cond(x, y, int_map, nb_rows);
+            ponder_map_cond(x, y, int_map, nb_cols);
         }
     }
 }
 
-square find_greatest_value_int_map(int *int_map, int nb_cols, int nb_rows)
+square find_greatest_value_int_map(
+    const int *int_map, int nb_cols, int nb_rows)
 {
     square max_result;
 
@@ -73,7 +74,7 @@ square find_greatest_value_int_map(int *int_map, int nb_cols, int nb_rows)
         if (int_map[i] > max_result.size) {
             max_result.size = int_map[i];
             max_result.pos_x = i % nb_cols;
-            max_result.pos_y = i / nb_rows;
+            max_result.pos_y = i / nb_cols;
         }
     }
     return max_result;
