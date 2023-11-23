@@ -9,6 +9,9 @@
 
 void reveal_square(square max_square, char *map, int nb_cols)
 {
+    if (max_square.size == 0) {
+        return;
+    }
     for (int y = max_square.pos_y; y > max_square.pos_y - max_square.size;
         y--) {
         for (int x = max_square.pos_x; x > max_square.pos_x - max_square.size;
