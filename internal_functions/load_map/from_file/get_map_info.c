@@ -8,10 +8,21 @@
 #include <stdlib.h>
 #include "../../../includes/my.h"
 
-int get_nb_rows(char *file_content, int nb_cols)
+static int get_first_line_len(char *file_content)
+{
+    int i = 0;
+
+    while (file_content[i] != '\n') {
+        i++;
+    }
+    return i;
+}
+
+int get_nb_rows(char *file_content)
 {
     int nb_rows;
-    char *first_line = malloc(sizeof(char) * (nb_cols + 1));
+    char *first_line =
+        malloc(sizeof(char) * get_first_line_len(file_content) + 1);
 
     if (!file_content)
         return (-1);
