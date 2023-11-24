@@ -44,4 +44,6 @@ int invalid_pattern_size(void);
 
 int invalid_pattern(void);
 
-bool is_map_valid(char *map, int nb_rows);
+bool is_map_valid(char *map, int nb_rows, int nb_cols);
+
+int invalid_line_size(void);

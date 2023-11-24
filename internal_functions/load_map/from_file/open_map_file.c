@@ -22,6 +22,10 @@ char *open_map_file(char *file_path)
         return NULL;
     }
     stat(file_path, &file_stats);
+    if (file_stats.st_size == 0) {
+        my_puterr("setting_up: Failed reading file, cannot be empty\n");
+        return NULL;
+    }
     buffer = malloc(sizeof(char) * (file_stats.st_size + 1));
     for (int i = 0; i < (file_stats.st_size + 1); i++) {
         buffer[i] = 0;
